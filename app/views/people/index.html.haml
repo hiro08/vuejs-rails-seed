@@ -1,0 +1,24 @@
+%h1 Listing people
+
+#index
+
+  :coffee
+    rails = window.rails = window.rails ? {}
+    rails.objPeople= #{raw @people.to_json}
+
+  %table.table.table-striped
+    %thead
+      %tr
+        %th 名前
+        %th 年齢
+        %th メモ
+    %tbody{'v-repeat' => 'items'}
+      %tr
+        %td
+          {{name}}
+        %td
+          {{age}}
+        %td
+          {{memo}}
+  %P
+    %a{:href => '/people/new'} New Person
